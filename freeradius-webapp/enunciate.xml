@@ -1,0 +1,21 @@
+<enunciate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://enunciate.webcohesion.com/schemas/enunciate-2.3.0.xsd"
+	slug="radius">
+
+	<title>FreeRADIUS</title>
+
+	<application root="/services" />
+
+	<api-classes>
+		<include pattern="org.oxerr.freeradius.resource.**" />
+		<exclude pattern="org.springframework.boot.autoconfigure.web.**" />
+	</api-classes>
+
+	<modules>
+		<docs docsSubdir="docs/api" />
+		<jackson1 disabled="true" />
+		<java-xml-client disabled="true" />
+		<swagger basePath="/${project.build.finalName}/services" />
+	</modules>
+
+</enunciate>
