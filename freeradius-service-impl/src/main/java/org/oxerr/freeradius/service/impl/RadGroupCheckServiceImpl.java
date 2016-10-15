@@ -5,6 +5,8 @@ import org.oxerr.freeradius.domain.RadGroupCheck;
 import org.oxerr.freeradius.repository.RadGroupCheckRepository;
 import org.oxerr.freeradius.service.RadGroupCheckService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.mysema.query.types.expr.BooleanExpression;
@@ -18,6 +20,18 @@ public class RadGroupCheckServiceImpl implements RadGroupCheckService {
 	@Autowired
 	public RadGroupCheckServiceImpl(RadGroupCheckRepository radGroupCheckRepository) {
 		this.radGroupCheckRepository = radGroupCheckRepository;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Page<RadGroupCheck> getRadGroupChecks(
+		String groupName,
+		Pageable pageable
+	) {
+		return radGroupCheckRepository
+			.findAll(qRadGroupCheck.groupName.eq(groupName), pageable);
 	}
 
 	/**
