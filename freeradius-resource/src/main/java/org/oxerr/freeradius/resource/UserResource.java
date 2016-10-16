@@ -46,7 +46,7 @@ public class UserResource {
 	}
 
 	/**
-	 * Create a new user.
+	 * Creates a new user.
 	 *
 	 * @param userName the user name of the new user.
 	 * @param password the password of the new user.
@@ -62,7 +62,7 @@ public class UserResource {
 	}
 
 	/**
-	 * Change password.
+	 * Changes password.
 	 *
 	 * @param userName the user name.
 	 * @param password the new password.

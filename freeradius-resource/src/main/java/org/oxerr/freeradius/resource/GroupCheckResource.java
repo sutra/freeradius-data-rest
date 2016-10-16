@@ -7,7 +7,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
 import org.oxerr.commons.ws.rs.OffsetPageRequest;
-import org.oxerr.freeradius.domain.RadCheck;
 import org.oxerr.freeradius.domain.RadGroupCheck;
 import org.oxerr.freeradius.domain.Role;
 import org.oxerr.freeradius.service.RadGroupCheckService;
@@ -29,6 +28,13 @@ public class GroupCheckResource {
 		this.radGroupCheckService = radGroupCheckService;
 	}
 
+	/**
+	 * Returns the {@link RadGroupCheck}s of the specified group.
+	 *
+	 * @param groupName the group name.
+	 * @param pageable the pagination information.
+	 * @return the {@link RadGroupCheck}s of the specified group.
+	 */
 	@GET @Path("/{groupName}")
 	@RolesAllowed({ Role.ROLE_STAFF })
 	public Page<RadGroupCheck> getRadGroupChecks(
@@ -39,11 +45,11 @@ public class GroupCheckResource {
 	}
 
 	/**
-	 * Returns the {@link RadCheck} of the specified group and attribute.
+	 * Returns the {@link RadGroupCheck} of the specified group and attribute.
 	 *
 	 * @param groupName the group name.
 	 * @param attribute the attribute name.
-	 * @return the {@link RadCheck}.
+	 * @return the {@link RadGroupCheck}.
 	 */
 	@GET @Path("/{groupName}/{attribute}")
 	@RolesAllowed({ Role.ROLE_STAFF })

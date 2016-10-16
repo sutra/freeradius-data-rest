@@ -12,7 +12,7 @@
 	</parent>
 	<artifactId>freeradius-webapp</artifactId>
 	<packaging>war</packaging>
-	<name>FreeRADIUS Data Rest</name>
+	<name>FreeRADIUS Web App</name>
 	<description>RESTful Web Services for FreeRADIUS SQL database.</description>
 	<build>
 		<plugins>
