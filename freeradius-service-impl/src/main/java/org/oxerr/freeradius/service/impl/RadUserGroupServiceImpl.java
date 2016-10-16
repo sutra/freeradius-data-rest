@@ -6,6 +6,8 @@ import org.oxerr.freeradius.domain.RadUserGroupId;
 import org.oxerr.freeradius.repository.RadUserGroupRepository;
 import org.oxerr.freeradius.service.RadUserGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
@@ -28,6 +30,14 @@ public class RadUserGroupServiceImpl implements RadUserGroupService {
 	public Iterable<RadUserGroup> getRadUserGroups(String userName) {
 		final Sort sort = new Sort(Direction.DESC, "priority");
 		return radUserGroupRepository.findAll(qRadUserGroup.userName.eq(userName), sort);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Page<RadUserGroup> getRadUserGroups(String userName, Pageable pageable) {
+		return radUserGroupRepository.findAll(qRadUserGroup.userName.eq(userName), pageable);
 	}
 
 	/**

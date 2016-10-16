@@ -2,6 +2,7 @@ package org.oxerr.freeradius.resource;
 
 import javax.annotation.Nonnull;
 import javax.annotation.security.RolesAllowed;
+import javax.ws.rs.BeanParam;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -11,6 +12,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 
+import org.oxerr.commons.ws.rs.OffsetPageRequest;
 import org.oxerr.freeradius.domain.RadCheck;
 import org.oxerr.freeradius.domain.RadUserGroup;
 import org.oxerr.freeradius.domain.Role;
@@ -18,6 +20,7 @@ import org.oxerr.freeradius.service.CheckService;
 import org.oxerr.freeradius.service.RadCheckService;
 import org.oxerr.freeradius.service.RadUserGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 /**
@@ -82,10 +85,11 @@ public class UserResource {
 	 */
 	@GET @Path("/{userName}/group")
 	@RolesAllowed({ Role.ROLE_USER, Role.ROLE_STAFF })
-	public Iterable<RadUserGroup> getGroups(
-		@PathParam("userName") String userName
+	public Page<RadUserGroup> getGroups(
+		@PathParam("userName") String userName,
+		@BeanParam OffsetPageRequest pageable
 	) {
-		return radUserGroupService.getRadUserGroups(userName);
+		return radUserGroupService.getRadUserGroups(userName, pageable);
 	}
 
 	/**
