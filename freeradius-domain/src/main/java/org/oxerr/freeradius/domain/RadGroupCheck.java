@@ -16,11 +16,23 @@ public class RadGroupCheck implements Serializable {
 
 	private static final long serialVersionUID = 2016101001L;
 
+	public static final String DEFAULT_OP = "==";
+
 	private long id;
 	private String groupName;
 	private String attribute;
 	private String op;
 	private String value;
+
+	public RadGroupCheck() {
+	}
+
+	public RadGroupCheck(String groupName, String attribute, String op, String value) {
+		this.groupName = groupName;
+		this.attribute = attribute;
+		this.op = op;
+		this.value = value;
+	}
 
 	@Id
 	@Column(name = "id")

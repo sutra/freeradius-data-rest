@@ -16,7 +16,12 @@ public interface RadCheckService {
 	RadCheck saveRadCheck(@Nonnull RadCheck radCheck);
 
 	@PreAuthorize("#userName == principal.username or hasRole('" + Role.ROLE_STAFF + "')")
-	RadCheck saveAttribute(@Nonnull String userName, @Nonnull String attribute, @Nullable String op, @Nullable String value);
+	RadCheck saveAttribute(
+		@Nonnull String userName,
+		@Nonnull String attribute,
+		@Nullable String op,
+		@Nullable String value
+	);
 
 	@PreAuthorize("#userName == principal.username or hasRole('" + Role.ROLE_STAFF + "')")
 	RadCheck savePassword(@Nonnull String userName, @Nonnull String password);

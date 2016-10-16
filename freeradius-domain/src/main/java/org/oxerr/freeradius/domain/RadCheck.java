@@ -16,6 +16,8 @@ public class RadCheck implements Serializable {
 
 	private static final long serialVersionUID = 2016101201L;
 
+	public static final String DEFAULT_OP = "==";
+
 	private long id;
 	private String userName;
 	private String attribute;

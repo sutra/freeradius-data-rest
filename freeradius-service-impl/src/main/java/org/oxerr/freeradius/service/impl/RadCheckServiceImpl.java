@@ -1,5 +1,7 @@
 package org.oxerr.freeradius.service.impl;
 
+import static org.oxerr.freeradius.domain.RadCheck.DEFAULT_OP;
+
 import java.util.Optional;
 
 import org.oxerr.freeradius.domain.QRadCheck;
@@ -15,7 +17,6 @@ import com.mysema.query.types.expr.BooleanExpression;
 @Service
 public class RadCheckServiceImpl implements RadCheckService {
 
-	private static final String DEFAULT_OP = "==";
 	private static final String ATTRIBUTE_PASSWORD = "Password";
 
 	private final QRadCheck qRadCheck = QRadCheck.radCheck;
