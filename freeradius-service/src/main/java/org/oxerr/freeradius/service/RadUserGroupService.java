@@ -23,5 +23,6 @@ public interface RadUserGroupService {
 	RadUserGroup addUserGroup(@Nonnull String userName, @Nonnull String groupName, int priority);
 
 	void deleteUserGroup(@Nonnull String userName, @Nonnull String groupName);
+	void deleteUserGroups(@Nonnull String userName);
 
 }

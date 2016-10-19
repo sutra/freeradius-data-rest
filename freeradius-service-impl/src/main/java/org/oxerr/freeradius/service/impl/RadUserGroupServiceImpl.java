@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class RadUserGroupServiceImpl implements RadUserGroupService {
@@ -71,6 +72,15 @@ public class RadUserGroupServiceImpl implements RadUserGroupService {
 	@Override
 	public void deleteUserGroup(String userName, String groupName) {
 		radUserGroupRepository.delete(new RadUserGroupId(userName, groupName));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	@Transactional
+	public void deleteUserGroups(String userName) {
+		radUserGroupRepository.delete(getRadUserGroups(userName));
 	}
 
 }

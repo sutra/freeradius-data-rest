@@ -62,6 +62,17 @@ public class UserResource {
 	}
 
 	/**
+	 * Deletes a user.
+	 *
+	 * @param userName the user name.
+	 */
+	@DELETE @Path("{userName}")
+	@RolesAllowed(Role.ROLE_STAFF)
+	public void deleteUser(@PathParam("userName") String userName) {
+		checkService.deleteUser(userName);
+	}
+
+	/**
 	 * Changes password.
 	 *
 	 * @param userName the user name.

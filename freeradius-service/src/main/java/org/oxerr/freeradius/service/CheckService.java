@@ -10,4 +10,6 @@ public interface CheckService {
 
 	RadCheck saveUser(@Nonnull String userName, @Nonnull String password);
 
+	void deleteUser(@Nonnull String userName);
+
 }

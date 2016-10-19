@@ -12,6 +12,8 @@ public interface RadCheckService {
 	@PreAuthorize("#userName == principal.username or hasRole('" + Role.ROLE_STAFF + "')")
 	RadCheck getRadCheck(@Nonnull String userName, @Nonnull String attribute);
 
+	Iterable<RadCheck> getRadChecks(@Nonnull String userName);
+
 	@PreAuthorize("#radCheck.userName == principal.username or hasRole('" + Role.ROLE_STAFF + "')")
 	RadCheck saveRadCheck(@Nonnull RadCheck radCheck);
 
@@ -22,6 +24,8 @@ public interface RadCheckService {
 		@Nullable String op,
 		@Nullable String value
 	);
+
+	void deleteRadChecks(@Nonnull String userName);
 
 	@PreAuthorize("#userName == principal.username or hasRole('" + Role.ROLE_STAFF + "')")
 	RadCheck savePassword(@Nonnull String userName, @Nonnull String password);

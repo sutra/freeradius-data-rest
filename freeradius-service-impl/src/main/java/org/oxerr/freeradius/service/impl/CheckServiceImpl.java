@@ -9,9 +9,11 @@ import org.oxerr.freeradius.domain.Role;
 import org.oxerr.freeradius.service.CheckService;
 import org.oxerr.freeradius.service.RadCheckService;
 import org.oxerr.freeradius.service.RadGroupCheckService;
+import org.oxerr.freeradius.service.RadReplyService;
 import org.oxerr.freeradius.service.RadUserGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CheckServiceImpl implements CheckService {
@@ -20,16 +22,19 @@ public class CheckServiceImpl implements CheckService {
 	private final RadUserGroupService radUserGroupService;
 	private final RadCheckService radCheckService;
 	private final RadGroupCheckService radGroupCheckService;
+	private final RadReplyService radReplyService;
 
 	@Autowired
 	public CheckServiceImpl(
 		RadUserGroupService radUserGroupService,
 		RadCheckService radCheckService,
-		RadGroupCheckService radGroupCheckService
+		RadGroupCheckService radGroupCheckService,
+		RadReplyService radReplyService
 	) {
 		this.radUserGroupService = radUserGroupService;
 		this.radCheckService = radCheckService;
 		this.radGroupCheckService = radGroupCheckService;
+		this.radReplyService = radReplyService;
 	}
 
 	/**
@@ -70,6 +75,17 @@ public class CheckServiceImpl implements CheckService {
 		final RadCheck radCheck = radCheckService.savePassword(userName, password);
 		radUserGroupService.addUserGroup(userName, Role.ROLE_USER);
 		return radCheck;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	@Transactional
+	public void deleteUser(String userName) {
+		radUserGroupService.deleteUserGroups(userName);
+		radCheckService.deleteRadChecks(userName);
+		radReplyService.deleteRadReplies(userName);
 	}
 
 }

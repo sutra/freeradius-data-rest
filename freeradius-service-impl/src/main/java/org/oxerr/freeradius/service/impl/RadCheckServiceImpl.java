@@ -44,6 +44,14 @@ public class RadCheckServiceImpl implements RadCheckService {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public Iterable<RadCheck> getRadChecks(String userName) {
+		return radCheckRepository.findAll(qRadCheck.userName.eq(userName));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public RadCheck saveRadCheck(RadCheck radCheck) {
 		return radCheckRepository.save(radCheck);
 	}
@@ -77,6 +85,15 @@ public class RadCheckServiceImpl implements RadCheckService {
 		}
 
 		return radCheck;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	@Transactional
+	public void deleteRadChecks(String userName) {
+		radCheckRepository.delete(getRadChecks(userName));
 	}
 
 	/**
