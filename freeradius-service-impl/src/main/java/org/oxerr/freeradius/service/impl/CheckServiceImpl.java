@@ -73,7 +73,7 @@ public class CheckServiceImpl implements CheckService {
 	@Override
 	public RadCheck saveUser(String userName, String password) {
 		final RadCheck radCheck = radCheckService.savePassword(userName, password);
-		radUserGroupService.addUserGroup(userName, Role.ROLE_USER);
+		radUserGroupService.addUserGroup(userName, Role.USER);
 		return radCheck;
 	}
 
