@@ -1,7 +1,12 @@
 package org.oxerr.freeradius;
 
 import java.time.ZoneOffset;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.apache.cxf.rs.security.cors.CrossOriginResourceSharingFilter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.oxerr.commons.ws.rs.exceptionmapper.IllegalArgumentExceptionMapper;
 import org.oxerr.commons.ws.rs.provider.InstantProvider;
 import org.oxerr.commons.ws.rs.provider.OffsetDateTimeProvider;
@@ -23,6 +28,8 @@ import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 @SpringBootApplication
 @EnableGlobalMethodSecurity(prePostEnabled = true, jsr250Enabled = true)
 public class Application {
+
+	private final Logger log = LogManager.getLogger();
 
 	/**
 	 * Writes the request URI (and optionally the query string) to the Commons Log.
@@ -54,6 +61,16 @@ public class Application {
 
 		mapper.setSerializationInclusion(Include.NON_ABSENT);
 		return mapper;
+	}
+
+	@Bean
+	public CrossOriginResourceSharingFilter crossOriginResourceSharingFilter() {
+		final CrossOriginResourceSharingFilter corsf = new CrossOriginResourceSharingFilter();
+		final List<String> exposeHeaders = new ArrayList<>(corsf.getExposeHeaders());
+		exposeHeaders.add("X-Auth-Token");
+		log.debug("exposeHeaders: {}", String.join(", ", exposeHeaders));
+		corsf.setExposeHeaders(exposeHeaders);
+		return corsf;
 	}
 
 	@Bean
