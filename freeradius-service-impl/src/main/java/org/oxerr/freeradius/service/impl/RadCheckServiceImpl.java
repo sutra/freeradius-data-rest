@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mysema.query.types.expr.BooleanExpression;
+import com.querydsl.core.types.ExpressionUtils;
 
 @Service
 public class RadCheckServiceImpl implements RadCheckService {
@@ -33,7 +33,7 @@ public class RadCheckServiceImpl implements RadCheckService {
 	@Override
 	public RadCheck getRadCheck(String userName, String attribute) {
 		return radCheckRepository.findOne(
-			BooleanExpression.allOf(
+			ExpressionUtils.allOf(
 				qRadCheck.userName.eq(userName),
 				qRadCheck.attribute.eq(attribute)
 			)

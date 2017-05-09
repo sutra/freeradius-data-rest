@@ -12,7 +12,7 @@ import org.oxerr.commons.ws.rs.provider.InstantProvider;
 import org.oxerr.commons.ws.rs.provider.OffsetDateTimeProvider;
 import org.oxerr.jackson.module.jsr250.Jsr250Module;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.embedded.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.Ordered;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;

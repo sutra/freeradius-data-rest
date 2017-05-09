@@ -133,7 +133,7 @@
 			<artifactId>jackson-jaxrs-json-provider</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.mysema.querydsl</groupId>
+			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-jpa</artifactId>
 		</dependency>
 		<dependency>

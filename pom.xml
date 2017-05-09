@@ -46,8 +46,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<cxf.version>3.1.11</cxf.version>
-		<enunciate.version>2.6.0</enunciate.version>
-		<hibernate.version>5.1.2.Final</hibernate.version>
+		<enunciate.version>2.9.1</enunciate.version>
 	</properties>
 	<modules>
 		<module>freeradius-domain</module>
@@ -259,7 +258,7 @@
 			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-lang3</artifactId>
-				<version>3.4</version>
+				<version>3.5</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
@@ -277,29 +276,9 @@
 				<version>${cxf.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-core</artifactId>
-				<version>${hibernate.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-entitymanager</artifactId>
-				<version>${hibernate.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-java8</artifactId>
-				<version>${hibernate.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-validator</artifactId>
-				<version>${hibernate.version}</version>
-			</dependency>
-			<dependency>
 				<groupId>org.oxerr.commons</groupId>
 				<artifactId>commons-jax-rs</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+				<version>1.1.0</version>
 			</dependency>
 			<dependency>
 				<groupId>org.oxerr.jackson.module</groupId>
@@ -309,7 +288,7 @@
 			<dependency>
 				<groupId>org.webjars</groupId>
 				<artifactId>swagger-ui</artifactId>
-				<version>2.2.5</version>
+				<version>3.0.8</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.the-alchemist</groupId>
@@ -319,7 +298,7 @@
 			<dependency>
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
-				<version>19.0</version>
+				<version>21.0</version>
 			</dependency>
 			<dependency>
 				<groupId>com.webcohesion.enunciate</groupId>
@@ -329,7 +308,7 @@
 			<dependency>
 				<groupId>io.spring.platform</groupId>
 				<artifactId>platform-bom</artifactId>
-				<version>2.0.8.RELEASE</version>
+				<version>Brussels-SR2</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

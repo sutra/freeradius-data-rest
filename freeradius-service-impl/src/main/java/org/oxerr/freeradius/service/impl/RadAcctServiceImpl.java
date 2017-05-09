@@ -17,7 +17,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import com.mysema.query.types.expr.BooleanExpression;
+import com.querydsl.core.types.ExpressionUtils;
+import com.querydsl.core.types.Predicate;
 
 @Service
 public class RadAcctServiceImpl implements RadAcctService {
@@ -58,12 +59,12 @@ public class RadAcctServiceImpl implements RadAcctService {
 		Pageable pageable
 	) {
 
-		BooleanExpression expression = BooleanExpression.allOf(
+		Predicate predicate = ExpressionUtils.allOf(
 			qRadAcct.userName.eq(userName),
 			qRadAcct.acctStartTime.goe(Optional.ofNullable(beginAcctStartTime).orElseGet(() -> beginningOfThisMonth())),
 			qRadAcct.acctStartTime.loe(Optional.ofNullable(endAcctStartTime).orElseGet(() -> OffsetDateTime.now()))
 		);
-		return radAcctRepository.findAll(expression, pageable);
+		return radAcctRepository.findAll(predicate, pageable);
 	}
 
 	/**

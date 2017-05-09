@@ -13,7 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.mysema.query.types.expr.BooleanExpression;
+import com.querydsl.core.types.ExpressionUtils;
 
 @Service
 public class RadGroupCheckServiceImpl implements RadGroupCheckService {
@@ -44,7 +44,7 @@ public class RadGroupCheckServiceImpl implements RadGroupCheckService {
 	@Override
 	public RadGroupCheck getRadGroupCheck(String groupName, String attribute) {
 		return radGroupCheckRepository.findOne(
-			BooleanExpression.allOf(
+			ExpressionUtils.allOf(
 				qRadGroupCheck.groupName.eq(groupName),
 				qRadGroupCheck.attribute.eq(attribute)
 			)
