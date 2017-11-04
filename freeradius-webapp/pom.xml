@@ -86,6 +86,14 @@
 			<artifactId>hibernate-java8</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.oxerr.commons</groupId>
+			<artifactId>commons-jax-rs-exception-mapper</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.oxerr.commons</groupId>
+			<artifactId>commons-jax-rs-provider</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.oxerr.jackson.module</groupId>
 			<artifactId>jackson-module-jsr250</artifactId>
 		</dependency>

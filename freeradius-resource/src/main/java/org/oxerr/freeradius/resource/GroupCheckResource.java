@@ -10,7 +10,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
-import org.oxerr.commons.ws.rs.OffsetPageRequest;
+import org.oxerr.commons.ws.rs.data.OffsetPageRequest;
 import org.oxerr.freeradius.domain.RadGroupCheck;
 import org.oxerr.freeradius.domain.Role;
 import org.oxerr.freeradius.service.RadGroupCheckService;

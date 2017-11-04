@@ -12,7 +12,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 
-import org.oxerr.commons.ws.rs.OffsetPageRequest;
+import org.oxerr.commons.ws.rs.data.OffsetPageRequest;
 import org.oxerr.freeradius.domain.RadCheck;
 import org.oxerr.freeradius.domain.RadUserGroup;
 import org.oxerr.freeradius.domain.Role;

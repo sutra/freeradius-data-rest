@@ -15,7 +15,7 @@ import javax.ws.rs.QueryParam;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.oxerr.commons.ws.rs.OffsetPageRequest;
+import org.oxerr.commons.ws.rs.data.OffsetPageRequest;
 import org.oxerr.freeradius.domain.RadAcct;
 import org.oxerr.freeradius.domain.Role;
 import org.oxerr.freeradius.service.RadAcctService;
